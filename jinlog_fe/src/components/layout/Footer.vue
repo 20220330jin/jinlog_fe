@@ -29,13 +29,13 @@ import HJButton from '../common/HJButton.vue';
         <div class="space-y-4">
           <h3>소셜 링크</h3>
           <div class="flex gap-2">
-            <HJButton>
+            <HJButton variant="outline">
               <Github class="h-4 w-4" />
             </HJButton>
-            <HJButton>
+            <HJButton variant="outline">
               <Linkedin class="h-4 w-4" />
             </HJButton>
-            <HJButton>
+            <HJButton variant="outline">
               <Mail class="h-4 w-4" />
             </HJButton>
           </div>
