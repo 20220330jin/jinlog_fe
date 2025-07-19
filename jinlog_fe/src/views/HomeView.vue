@@ -22,27 +22,27 @@ const handleNavigate = (path: string) => {
 <template>
   <main>
     <Hero @navigate-to=handleNavigate />
-    <section class="">
-      <div>
-        <div>
-          <h2>최신 블로그 포스트</h2>
-          <p>안녕하세욥!</p>
+    <section id="blog" class="py-24 bg-muted/50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl mb-4">최신 블로그 포스트</h2>
+          <p class="text-muted-foreground max-w-2xl mx-auto">안녕하세욥!</p>
         </div>
-        <div>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <div>
             <BlogPostCard />
           </div>
         </div>
-        <div>
-          <HJButton @click="handleNavigate('ALL')">모든 포스트 보기</HJButton>
+        <div class="text-center">
+          <HJButton @click="handleNavigate('posts')" class="gap-2">모든 포스트 보기</HJButton>
         </div>
       </div>
     </section>
-    <section>
-      <div>
-        <h2>하이?</h2>
-        <p>안녕하세요!!</p>
-        <HJButton>About Me</HJButton>
+    <section id="contact" class="py-24 bg-primary text-primary-foreground">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl mb-4">하이?</h2>
+        <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">안녕하세요!!</p>
+        <HJButton variant="secondary" size="lg" class="gap-2" @click="handleNavigate('about')">About Me</HJButton>
       </div>
     </section>
   </main>
