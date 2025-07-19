@@ -11,10 +11,12 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "lucide-vue-next": "^0.525.0",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
   "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
     "@types/node": "^24.0.14",
     "@typescript-eslint/eslint-plugin": "^8.37.0",
     "@typescript-eslint/parser": "^8.37.0",
@@ -26,7 +28,7 @@
     "eslint-plugin-vue": "^10.3.0",
     "postcss": "^8.5.6",
     "prettier": "^3.6.2",
-    "tailwindcss": "^4.1.11",
+    "tailwindcss": "^3.4.17",
     "typescript": "^5.8.3",
     "vite": "^7.0.0",
     "vite-plugin-vue-devtools": "^7.7.7"
