@@ -22,21 +22,56 @@ const skills = {
 };
 const timeline = [
   {
+    id: 1,
     date: '2020-01-01',
     companyName: '회사 A',
     description: '회사 A에서 프론트엔드 개발자로 일했습니다.',
   },
   {
+    id: 2,
     date: '2021-06-01',
     companyName: '회사 B',
     description: '회사 B에서 백엔드 개발자로 일했습니다.',
   },
   {
+    id: 3,
     date: '2022-09-01',
     companyName: '회사 C',
     description: '회사 C에서 풀스택 개발자로 일했습니다.',
   },
 ];
+
+const companyProjects = [
+  {
+    id: 1,
+    companyName: '아이시프트',
+    ProjectCompanyName: '현대 글로비스',
+    ProjectName: '현대 글로비스 글로벌 오토벨 중고차 수출 플랫폼 구축',
+    role: '풀스택 개발자',
+    period: '2021-04-01 ~ 2022-01-30',
+    description: '아이시프트에서 풀스택 개발자로 일하며 다양한 웹 애플리케이션을 개발했습니다.',
+    techStack: ['Vue.js', 'Spring Boot', 'Java'],
+    achievements: [
+      '사용자 친화적인 UI/UX 설계 및 구현',
+      'RESTful API 설계 및 구현',
+    ],
+  },
+  {
+    id: 2,
+    companyName: '아이시프트',
+    ProjectCompanyName: '현대 글로비스',
+    ProjectName: '현대 글로비스 글로벌 오토벨 중고차 수출 플랫폼 운영 및 유지보수',
+    role: '풀스택 개발자',
+    period: '2022-02-01 ~ 2022-10-30',
+    description: '아이시프트에서 풀스택 개발자로 일하며 다양한 웹 애플리케이션을 개발했습니다.',
+    techStack: ['Vue.js', 'Spring Boot', 'Java'],
+    achievements: [
+      '사용자 친화적인 UI/UX 설계 및 구현',
+      'RESTful API 설계 및 구현',
+    ],
+  },
+];
+const personalProjects = [];
 </script>
 
 <template>
@@ -132,22 +167,24 @@ const timeline = [
     </section>
 
     <!-- 경력 타임라인  -->
-    <section>
-      <h2>경력</h2>
-      <div>
+    <section class="mb-16">
+      <h2 class="text-3xl text-center mb-8">경력</h2>
+      <div class="max-w-3xl mx-auto">
         <div v-for="item in timeline">
-          <div>
-            <div>
-              <div />
+          <div :key="item.id" class="flex gap-6 pb-8 last:pb-0 group">
+            <div class="flex flex-col items-center">
+              <div class="w-4 h-4 bg-primary rounded-full group-hover:scale-125 transition-transform duration-300" />
+              <div v-if="item.id < timeline.length"
+                   class="w-px bg-border flex-1 mt-2 group-hover:bg-primary/50 transition-colors duration-300" />
             </div>
-            <div>
-              <div>
+            <div class="flex-1 pb-8">
+              <div class="text-sm text-muted-foreground mb-1 bg-muted px-2 py-1 rounded-md inline-block">
                 {{ item.date }}
               </div>
-              <h3>
+              <h3 class="mb-1 group-hover:text-primary transition-colors duration-300">
                 {{ item.companyName }}
               </h3>
-              <p>{{ item.description }}</p>
+              <p class="text-muted-foreground">{{ item.description }}</p>
             </div>
           </div>
         </div>
@@ -155,12 +192,14 @@ const timeline = [
     </section>
 
     <!-- 프로젝트 경험 -->
-    <section>
-      <h2>프로젝트 경험</h2>
-      <div>
-        <h3>기업 프로젝트</h3>
-        <div>
-          <CompanyProjectCard />
+    <section class="mb-16">
+      <h2 class="text-3xl text-center mb-8">프로젝트 경험</h2>
+      <div class="mb-12">
+        <h3 class="text-xl mb-6">기업 프로젝트</h3>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div v-for="companyProject in companyProjects">
+            <CompanyProjectCard :key="companyProject.id" :project="companyProject" />
+          </div>
         </div>
       </div>
       <div>
