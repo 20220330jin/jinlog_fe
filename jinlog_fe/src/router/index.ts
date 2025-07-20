@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
 import PostListView from '../views/PostListView.vue';
 import AboutView from '../views/AboutView.vue';
+import PostDetailView from '@/views/PostDetailView.vue';
 
 /**
  * 프로젝트 route 관리
@@ -28,6 +29,11 @@ const router = createRouter({
           path: '/posts',
           name: 'posts',
           component: PostListView,
+        },
+        {
+          path: '/:id',
+          name: 'postDetail',
+          component: PostDetailView,
         },
       ],
     },

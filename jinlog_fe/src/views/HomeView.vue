@@ -38,6 +38,11 @@ const samplePosts = [
     imageUrl: 'https://images.unsplash.com/photo-1539650116574-75c0c6d1c48a?w=500&h=300&fit=crop',
   },
 ];
+
+const handlePostClick = (postId: string) => {
+  console.log('Post clicked:', postId);
+  router.push({ name: 'postDetail', params: { id: postId } });
+};
 </script>
 
 <template>
@@ -52,7 +57,7 @@ const samplePosts = [
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           <div v-for="post in samplePosts">
             <div>
-              <BlogPostCard :post="post" />
+              <BlogPostCard :post="post" @click="() => handlePostClick(post.id)" />
             </div>
           </div>
         </div>
