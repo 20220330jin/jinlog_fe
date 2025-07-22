@@ -37,6 +37,42 @@ const samplePosts = [
     tags: ['여행', '제주도', '맛집', '카페'],
     imageUrl: 'https://images.unsplash.com/photo-1539650116574-75c0c6d1c48a?w=500&h=300&fit=crop',
   },
+  {
+    id: '3',
+    title: '개발자의 일상 - 새해 목표와 학습 계획 세우기',
+    excerpt: '2025년 새해를 맞아 개인적인 성장 목표와 기술 학습 계획을 세워보며, 지난 해를 돌아보는 시간을 가져봤습니다.',
+    date: '2025-01-01',
+    readTime: '6분',
+    tags: ['일상', '회고', '목표', '성장'],
+    imageUrl: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=500&h=300&fit=crop'
+  },
+  {
+    id: '4',
+    title: 'TypeScript 고급 패턴과 실무 활용법',
+    excerpt: 'TypeScript의 고급 타입 시스템을 활용한 안전하고 확장 가능한 코드 작성 방법을 소개합니다.',
+    date: '2024-12-28',
+    readTime: '15분',
+    tags: ['TypeScript', 'JavaScript', 'Best Practices'],
+    imageUrl: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=500&h=300&fit=crop'
+  },
+  {
+    id: '5',
+    title: '부산 감천문화마을에서의 하루',
+    excerpt: '부산의 숨은 보석 같은 곳, 감천문화마을에서 보낸 특별한 하루를 사진과 함께 기록해봤습니다.',
+    date: '2024-12-25',
+    readTime: '8분',
+    tags: ['여행', '부산', '문화', '사진'],
+    imageUrl: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=500&h=300&fit=crop'
+  },
+  {
+    id: '6',
+    title: '재택근무 1년 후기 - 나만의 루틴 만들기',
+    excerpt: '재택근무를 시작한 지 1년이 지나면서 나만의 효율적인 업무 루틴과 워라밸을 찾아가는 과정을 공유합니다.',
+    date: '2024-12-20',
+    readTime: '10분',
+    tags: ['일상', '재택근무', '루틴', '워라밸'],
+    imageUrl: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=500&h=300&fit=crop'
+  },
 ];
 
 const handlePostClick = (postId: string) => {
