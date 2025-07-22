@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import HJButton from '@/components/common/HJButton.vue';
-import { ArrowLeft, Eye, Save, Image, Plus } from 'lucide-vue-next';
+import { ArrowLeft, Eye, Save, Image, Plus, Camera, X } from 'lucide-vue-next';
 import { useRouter } from 'vue-router';
 import { ref } from 'vue';
 import HJCard from '@/components/common/HJCard.vue';
@@ -83,8 +83,8 @@ const savePost = () => {
       </HJCardContent>
     </HJCard>
     <!-- 편집 모드 -->
-    <div v-else>
-      <HJCard class="space-y-6">
+    <div v-else class="space-y-6">
+      <HJCard>
         <HJCardHeader>
           <HJCardTitle>기본 정보</HJCardTitle>
         </HJCardHeader>
@@ -99,10 +99,10 @@ const savePost = () => {
           </div>
           <div>
             <HJLabel>이미지 URL (선택사항)</HJLabel>
-            <div>
-              <HJInput />
-              <HJButton>
-                <Image />
+            <div class="flex gap-2">
+              <HJInput id="image" placeholer="https://example.com/image.jpg" />
+              <HJButton variant="outline" size="icon">
+                <Image class="h-4 w-4" />
               </HJButton>
             </div>
           </div>
@@ -110,44 +110,73 @@ const savePost = () => {
       </HJCard>
       <HJCard>
         <HJCardHeader>
-          <HJCardTitle>
+          <HJCardTitle class="flex items-center justify-between">
             <span>본문</span>
-            <span>글자</span>
+            <span class="text-sm text-muted-foreground">글자</span>
           </HJCardTitle>
         </HJCardHeader>
         <HJCardContent>
+          <div class="mb-4 p-3 bg-muted rounded-lg border-b">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <HJButton size="sm" variant="default" class="gap-2 bg-primary">
+                  <Camera class="h-4 w-4" />
+                  사진 삽입
+                </HJButton>
+              </div>
+            </div>
+          </div>
           <HJTextarea :placeholder="mainContentPlaceHolder" rows="30" v-model="createPostParam.content" />
         </HJCardContent>
       </HJCard>
       <HJCard>
         <HJCardHeader>
-          <HJCardTitle>
+          <HJCardTitle class="flex items-center justify-between">
             <span>태그</span>
-            <span>10 개</span>
+            <span class="text-sm text-muted-foreground">0/10 개</span>
           </HJCardTitle>
         </HJCardHeader>
         <HJCardContent>
-          <div>
-            <div>
-              <HJInput />
-              <HJButton>
-                <Plus />
+          <div class="space-y-4">
+            <div class="flex gap-2">
+              <HJInput placeholer="태그 입력 후 Enter" />
+              <HJButton size="icon" variant="outline">
+                <Plus class="h-4 w-4" />
               </HJButton>
+            </div>
+            <div class="p-3 bg-muted rounded-lg">
+              <p class="text-sm text-muted-foreground mb-2">
+                <strong>여행 포스트</strong>
+              </p>
+              <div class="flex flex-wrap gap-2">
+                <HJButton size="sm" variant="outline" class="h-6 text-xs">여행</HJButton>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <div class="flex flex-wrap gap-2">
+                <button>
+                  <X class="h-3 w-3" />
+                </button>
+              </div>
+              <p>태그를 클릭하면 삭제됩니다.</p>
+            </div>
+            <div class="text-center py-8 text-muted-foreground">
+              <p class="mb-2">아직 태그가 없습니다.</p>
             </div>
           </div>
         </HJCardContent>
       </HJCard>
       <!-- 하단 저장 영역 -->
-      <div>
-        <div>
-          <p>자동 저장</p>
+      <div class="flex justify-between items-center p-6 bg-muted rounded-lg">
+        <div class="text-sm text-muted-foreground">
+          <p>자동 저장: <span class="text-green-600">활성화</span></p>
           <p>마지막 수정: 방금 전</p>
         </div>
-        <div>
-          <HJButton>취소</HJButton>
-          <HJButton @click="savePost">
-            <Save />
-            저장하기
+        <div class="flex gap-3">
+          <HJButton variant="outline">취소</HJButton>
+          <HJButton @click="savePost" class="gap-2 min-w-24">
+            <Save class="h-4 w-4" />
+            등록하기
           </HJButton>
         </div>
       </div>
